@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product list page</title>
+    <style>
+        .product-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .product-image {
+            max-width: 100px;
+        }
+
+        .product-container {
+            display: inline-block;
+            background-color: aquamarine;
+            width: 30%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .view-product {
+            background-color: rgb(62, 94, 236);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <template id="product-template">
+        <div class="product-container">
+            <img class="product-image" alt="Product Image">
+            <p class="product-description"></p>
+            <p class="product-price"></p>
+            <p class="product-review"></p>
+            <button class="view-product" onclick='window.location.href="https://www.amazon.in/"'>View Product</button>
+        </div>
+    </template>
+
+    <div id="products"></div>
+
+    <script>
+        const arrayOfObjects = [
+            {
+                id: '01',
+                img: '/photos/img1.png',
+                price: 234,
+                description: 'Sample description of cracker image',
+                review: 'So what good'
+            },
+            {
+                id: '02',
+                img: '/photos/img2.png',
+                price: 234,
+                description: 'Sample description of another cracker image',
+                review: 'So what good'
+            },
+            {
+                id: '03',
+                img: '/photos/img3.png',
+                price: 234,
+                description: 'sample description of cracker image',
+                review: 'so what good'
+            },
+            {
+                id: '04',
+                img: '/photos/img4.png',
+                price: 234,
+                description: 'sample description of cracker image',
+                review: 'so what good'
+            },
+            {
+                id: '05',
+                img: '/photos/img5.png',
+                price: 234,
+                description: 'sample description of cracker image',
+                review: 'so what good'
+            },
+            {
+                id: '06',
+                img: '/photos/img5.png',
+                price: 234,
+                description: 'sample description of cracker image',
+                review: 'so what good'
+            }
+        ];
+
+        const template = document.getElementById('product-template');
+        const productsContainer = document.getElementById('products');
+
+        arrayOfObjects.forEach(item => {
+            const clone = template.content.cloneNode(true);
+
+            clone.querySelector('.product-image').src = item.img;
+            clone.querySelector('.product-image').alt = item.description;
+            clone.querySelector('.product-description').textContent = item.description;
+            clone.querySelector('.product-price').textContent = `Price: $${item.price}`;
+            clone.querySelector('.product-review').textContent = `Review: ${item.review}`;
+
+            productsContainer.appendChild(clone);
+        });
+    </script>
+</body>
+
+</html>
