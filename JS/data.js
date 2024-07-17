@@ -14,13 +14,13 @@ export const product = [
     {
         id:2,
         image: '/IMAGES/helicopter-img-3.jpg',
-        title:'Helocopter Crackers',
+        title:'Helicopter Crackers',
         price:320,
     },
     {
         id:3,
         image: '/IMAGES/helicopter-img-3.jpg',
-        title:'Adiyal Paper Bomb Crackers',
+        title:'Paper Crackers',
         price:160,
     },
     {

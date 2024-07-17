@@ -5,32 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/addtocart.css">
+    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    <title>Product Search</title>
 
-    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous">
-    </script>
-    <title>Document</title>
 </head>
 
 <body>
-
     <div class="header">
-        <p class="logo"><img class="logoo" src="/IMAGES/logo.jpg" alt="Empty"></p>
-
-        <a href="cartpage.html"><button class="mycart-btn">Go to my cart</button>
-        </a>
-
+        <p class="logo"><img class="logoo" src="/IMAGES/logo.jpg" alt="Logo"></p>
+        <input class="search-Bar" id="searchBar" placeholder="Search" type="text" onkeyup="searchProducts()">
+        <div class="My-Cart">
+            <a href="cartpage.html"><button class="mycart-btn">Go to my cart</button></a>
+        </div>
         <div class="cart"><i class="fa-solid fa-cart-shopping"></i>
             <p id="count">0</p>
         </div>
     </div>
-
-    <div class="container">
-        <div id="root"></div>
+    <div class="container" id="root"></div>
+    <div id="noResults" style="display: none; text-align: center; margin-top: 20px;">
+        <p>No results found</p>
     </div>
 
     <script type="module" src="/JS/addtocart.js"></script>
-
-
 </body>
 
 </html>
