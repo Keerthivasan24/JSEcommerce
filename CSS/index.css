@@ -40,7 +40,7 @@ body {
   
   .search-bar {
     display: inline-block;
-    float: right;
+    float:right;
 
   }
   
@@ -54,7 +54,6 @@ body {
     color: white;
     border: none;
     cursor: pointer;
-   
   }
   
   main {
