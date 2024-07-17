@@ -143,4 +143,6 @@ export const product = [
         title:'15 Spot Crackers',
         price:300,
     }
+
+
 ];
