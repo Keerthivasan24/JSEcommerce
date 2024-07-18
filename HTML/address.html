@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Address Page</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="address.css">
+  <script src="address.js"></script>
+</head>
+
+<body>
+  <div class="payment-container">
+    <div class="payment-login">
+      <div class="contact-header">
+        <i id="icon" class="fa-solid fa-phone"></i>
+        <p class="contact-details">Contact Details</p>
+      </div>
+      <input type="text" id="name" class="cd" placeholder="Name" required><br>
+      <input type="text" id="contact-number" class="cd" placeholder="Contact Number" required><br>
+      <input type="text" id="house-name" class="cd" placeholder="House/Building name" required><br>
+      <input type="text" id="road-name" class="cd" placeholder="Road name/Area/Colony" required><br>
+      <input type="text" id="pincode" class="cd" placeholder="Pincode" required><br>
+      <input type="text" id="city" class="cd" placeholder="City" required><br>
+      <input type="text" id="state" class="cd" placeholder="State" required><br>
+      <p id="error-message">Please fill in all fields.</p>
+    </div>
+    <div class="product-container" id="product-container">
+      <h2>Product Details</h2>
+      <!-- Product details will be appended here dynamically -->
+    </div>
+  </div>
+  <button id="continue-button">Continue</button>
+</body>
+
+</html>

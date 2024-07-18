@@ -1,0 +1,85 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.all-radios{
+  padding: 20px 10px;
+}
+
+.payment-page-container {
+  display: flex;
+  background-color: #fff;
+  margin: 50px 50px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  height: 550px;
+}
+
+.payment-page {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.price-details {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-color: black;
+}
+
+.payment-login {
+  margin-bottom: 20px;
+}
+
+.contact-header {
+  margin-bottom: 20px;
+  border-right: black;
+}
+
+.contact-details {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: start;
+  background-color: rgb(45, 158, 215);
+  padding: 10px 5px;
+  color: white;
+
+}
+
+.payment-option {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.payment-option input {
+  margin-right: 10px;
+}
+.conform-order{
+  margin-top: 80px;
+}
+
+button {
+  width: 200px;
+  padding: 10px;
+  background-color: #36f42f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
