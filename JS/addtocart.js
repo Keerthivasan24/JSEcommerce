@@ -1,7 +1,6 @@
 import { product } from "./data.js";
 
 let categories = [...new Set(product.map((item) => item))];
-let i = 0;
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -17,7 +16,7 @@ function displayProducts(products) {
                     </div> 
                     <div class='bottom'>
                         <p>${title}</p>
-                        <h2>$ ${price}.00</h2>
+                        <h2>₹ ${price}.00</h2>
                         <button onclick='addtocart(${index})'>Add to cart</button>
                     </div>
                 </div>`
@@ -31,28 +30,84 @@ function displayProducts(products) {
 }
 
 window.addtocart = function (index) {
-    cart.push({ ...categories[index] });
+    let itemInCart = cart.find(item => item.title === categories[index].title);
+
+    if (itemInCart) {
+        itemInCart.quantity += 1;
+    } else {
+        cart.push({ ...categories[index], quantity: 1 });
+    }
+
     localStorage.setItem('cart', JSON.stringify(cart));
-   
-    document.getElementById("count").innerHTML = cart.length;
+    document.getElementById("count").innerHTML = cart.reduce((total, item) => total + item.quantity, 0);
     console.log("Item added to cart");
 }
 
 window.displaycart = function () {
-    
+    let cartItemsHtml = '';
+    let total = 0;
+
+    if (cart.length === 0) {
+        document.getElementById('cartItem').innerHTML = 'Your Cart Is Empty';
+        document.getElementById('total').textContent = '₹ 0.00';
+    } else {
+        cart.forEach((item, index) => {
+            cartItemsHtml += `
+                <div class="cart-item">
+                    <div class="row-img">
+                        <img class="rowimg" src="${item.image}">
+                    </div>
+                    <p>${item.title}</p>
+                    <h2>₹ ${item.price}.00</h2>
+                    <div class="quantity-controls">
+                        <button onclick="decreaseQuantity(${index})">-</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="increaseQuantity(${index})">+</button>
+                    </div>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                </div>
+            `;
+            total += item.price * item.quantity;
+        });
+
+        document.getElementById('cartItem').innerHTML = cartItemsHtml;
+        document.getElementById('total').textContent = `₹ ${total.toFixed(2)}`;
+    }
+
+    document.getElementById('count').textContent = cart.reduce((total, item) => total + item.quantity, 0);
 }
 
-window.delElement = function (index) {
+window.increaseQuantity = function (index) {
+    cart[index].quantity++;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displaycart();
+}
+
+window.decreaseQuantity = function (index) {
+    if (cart[index].quantity > 1) {
+        cart[index].quantity--;
+    } else {
+        cart.splice(index, 1);
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displaycart();
+}
+
+window.removeFromCart = function (index) {
     cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
-  
-    document.getElementById("count").innerHTML = cart.length;
+    displaycart();
+}
+
+window.clearCart = function () {
+    cart = [];
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displaycart();
 }
 
 function CartCount() {
-    document.getElementById("count").innerHTML = cart.length;
+    document.getElementById("count").innerHTML = cart.reduce((total, item) => total + item.quantity, 0);
 }
-
 
 CartCount();
 
@@ -63,3 +118,5 @@ window.searchProducts = function () {
     const filteredProducts = categories.filter(product => product.title.toLowerCase().includes(searchTerm));
     displayProducts(filteredProducts);
 }
+
+document.getElementById('clearCart').addEventListener('click', clearCart);

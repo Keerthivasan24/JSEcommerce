@@ -1,22 +1,15 @@
-/* .container{
+
+/* #root{
+    width: 100%;
     display: flex;
-    width: 70%;
-    margin-bottom: 30px;
-} */
-#root{
-    width: 60%;
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
-}
-.sidebar{
-    width: 40%;
-    border-radius:5px;
-    background-color: #eee;
-    margin-left: 20px;
-    padding: 15px;
-    text-align:center;
-}
+} */
+ *{
+    font-size:20px;
+    justify-content: center;
+ }
+
 
 .head{
     background-color: #ff7e27;
@@ -34,4 +27,77 @@
     margin: 20px 0px;
     padding: 10px 0px;
     border-top:1px solid #333;
+}
+
+/* quantity control added here */
+#cartItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    border-style: solid;
+    border-color: rgb(213, 223, 233);
+    margin-bottom: 10px;
+    place-items: center;
+}
+#total-div{
+    background-color:rgb(0, 15, 129) ;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    }  
+#count-div{
+    background-color:rgb(0, 15, 129) ;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+#clearCart{
+    background-color:red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+#backtohome{
+    background-color: rgb(0, 15, 129);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#BuyNow{
+    background-color: rgb(0, 15, 129);
+    color: white;
+    padding: 10px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.row-img {
+    width: 150px;
+    margin-right: 10px;
+}
+.rowimg {
+    height:150px;
+    width: 100%;
+}
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+.quantity-controls button {
+    margin: 0 5px;
+    background-color:  #ff7e27;
+    color: white;
+    border: none;
+    border-radius: 1px;
 }

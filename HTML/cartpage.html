@@ -15,12 +15,17 @@
         </div>
         <div id="cartItem">Your Cart Is Empty</div>
         <div class="foot">
-            <h3>Total</h3>
-            <h2 id="total">$ 0.00</h2>
+            <div id="total-div">Total: <span id="total">	
+                ₹ 0.00</span></div>
+                <div id="BuyNow" onclick="buynowfunc()">Buy Now</div>
+            <div id="count-div">Count: <span id="count">0</span></div>
+            <button id="clearCart">Clear Cart</button>
         </div>
-        <a href="/HTML/addtocart.html"><button>Back to Home</button></a>
-        <button id="clearCart">Clear Cart</button>
+        <a href="/HTML/addtocart.html"><button id="backtohome">Back to Home</button></a>
+
     </div>
+
+
     <script src="/JS/cartpage.js"></script>
 </body>
 
