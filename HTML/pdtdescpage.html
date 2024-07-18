@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/addtocart.css">
+    <title>Product Details</title>
+    <style>
+        .container {
+
+            display: flex;
+            place-content: center;
+            align-items: center;
+            border-style: solid;
+            /* width: 50%; */
+            /* margin-left: 25%; */
+            border-color: rgb(213, 223, 233);
+            padding: 20px;
+        }
+
+        img {
+            width: 300px;
+            margin: 10px 0;
+            margin-left: 40%;
+
+        }
+
+        h2,
+        h1 {
+            margin: 10px 0;
+        }
+
+        h2 {
+            color: green;
+            font-weight: bolder;
+        }
+
+        .back-button,
+        .add-to-cart-button {
+            margin: 10px;
+        }
+
+        .noresult {
+            font-weight: bold;
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="addtocart.html">
+            <p class="logo"><img class="logoo" src="/IMAGES/logo.jpg" alt="Logo"></p>
+        </a>
+        <input class="search-Bar" id="searchBar" placeholder="Search" type="text" onkeyup="searchProducts()">
+        <div class="My-Cart">
+            <a href="cartpage.html"><button class="mycart-btn">Go to my cart</button></a>
+        </div>
+        <div class="cart"><i class="fa-solid fa-cart-shopping"></i>
+            <p id="count">0</p>
+        </div>
+    </div>
+    <div id="noResults" style="display: none; text-align: center; margin-top: 20px;">
+        <p class="noresult">No results found</p>
+    </div>
+    <div class="container" id="productDetails">
+        <img id="productImage" alt="Product Image" />
+        <h1 id="productTitle"></h1>
+        <p id="productDescription"></p>
+        <h2 id="productPrice"></h2>
+        <a href="addtocart.html"><button class="back-button">Back</button></a>
+        <button class="add-to-cart-button" onclick='addToCart()'>Add to cart</button>
+        <button class="Buy-Now" onclick='BuyNowHandle()'>Buy Now</button>
+    </div>
+    <script type="module" src="/JS/pdtdescpage.js"></script>
+</body>
+
+</html>

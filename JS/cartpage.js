@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (cart.length === 0) {
             document.getElementById('cartItem').innerHTML = 'Your Cart Is Empty';
-            document.getElementById('total').textContent = '$ 0.00';
+            document.getElementById('total').textContent = '₹ 0.00';
         } else {
             cart.forEach((item, index) => {
                 cartItemsHtml += `
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <img class="rowimg" src="${item.image}">
                         </div>
                         <p>${item.title}</p>
-                        <h2>$ ${item.price}.00</h2>
+                        <h2>₹ ${item.price}.00</h2>
                         <button onclick="removeFromCart(${index})">Remove</button>
                     </div>
                 `;
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             document.getElementById('cartItem').innerHTML = cartItemsHtml;
-            document.getElementById('total').textContent = `$ ${total}.00`;
+            document.getElementById('total').textContent = `₹ ${total}.00`;
         }
 
         document.getElementById('count').innerHTML = cart.length;

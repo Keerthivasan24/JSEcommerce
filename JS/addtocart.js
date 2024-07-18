@@ -17,8 +17,9 @@ function displayProducts(products) {
                     </div> 
                     <div class='bottom'>
                         <p>${title}</p>
-                        <h2>$ ${price}.00</h2>
+                        <h2>₹ ${price}.00</h2>
                         <button onclick='addtocart(${index})'>Add to cart</button>
+                        <button onclick='viewinfo(${index})'>view info</button>
                     </div>
                 </div>`
             );
@@ -36,6 +37,11 @@ window.addtocart = function (index) {
    
     document.getElementById("count").innerHTML = cart.length;
     console.log("Item added to cart");
+}
+
+window.viewinfo =function(index){
+    localStorage.setItem('selectedProduct', JSON.stringify(categories[index]));
+    window.location.href='pdtdescpage.html';
 }
 
 window.displaycart = function () {
