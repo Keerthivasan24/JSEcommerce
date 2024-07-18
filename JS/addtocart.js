@@ -1,3 +1,4 @@
+
 import { product } from "./data.js";
 
 let categories = [...new Set(product.map((item) => item))];
