@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (cart.length === 0) {
             document.getElementById('cartItem').innerHTML = 'Your Cart Is Empty';
             document.getElementById('total').textContent = '₹ 0.00';
+            document.getElementById('total').textContent = '₹ 0.00';
         } else {
             cart.forEach((item, index) => {
                 cartItemsHtml += `

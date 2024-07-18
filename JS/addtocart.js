@@ -1,3 +1,4 @@
+
 import { product } from "./data.js";
 
 let categories = [...new Set(product.map((item) => item))];
@@ -18,6 +19,7 @@ function displayProducts(products) {
                         <p>${title}</p>
                         <h2>₹ ${price}.00</h2>
                         <button onclick='addtocart(${index})'>Add to cart</button>
+                        <button onclick='viewinfo(${index})'>view info</button>
                     </div>
                 </div>`
             );
@@ -41,6 +43,11 @@ window.addtocart = function (index) {
     localStorage.setItem('cart', JSON.stringify(cart));
     document.getElementById("count").innerHTML = cart.reduce((total, item) => total + item.quantity, 0);
     console.log("Item added to cart");
+}
+
+window.viewinfo =function(index){
+    localStorage.setItem('selectedProduct', JSON.stringify(categories[index]));
+    window.location.href='pdtdescpage.html';
 }
 
 window.displaycart = function () {
