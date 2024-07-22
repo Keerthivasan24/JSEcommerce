@@ -8,7 +8,7 @@ window.onload = function() {
     if (selectedProduct) {
         document.getElementById('productImage').src = selectedProduct.image;
         document.getElementById('productTitle').textContent = selectedProduct.title;
-        document.getElementById('productPrice').textContent = `$${selectedProduct.price}.00`;
+        document.getElementById('productPrice').textContent = `₹ ${selectedProduct.price}.00`;
         document.getElementById('productDescription').textContent = selectedProduct.description;
         document.getElementById('productDetails').style.display = 'block';
         document.getElementById('noResults').style.display = 'none';
@@ -20,15 +20,25 @@ window.onload = function() {
 };
 
 function updateCartCount() {
-    document.getElementById("count").innerHTML = cart.length;
+    const countElement = document.getElementById("count");
+    if (countElement) {
+        countElement.innerHTML = cart.reduce((total, item) => total + item.quantity, 0) || 0;
+    }
 }
 
 window.addToCart = function () {
     const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct'));
     if (selectedProduct) {
-        cart.push(selectedProduct);
+        let itemInCart = cart.find(item => item.title === selectedProduct.title);
+
+        if (itemInCart) {
+            itemInCart.quantity += 1;
+        } else {
+            cart.push({ ...selectedProduct, quantity: 1 });
+        }
+
         localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCount();
+        updateCartCount(); // Update cart count in header
         console.log("Item added to cart");
     }
 }
@@ -43,7 +53,7 @@ window.searchProducts = function () {
         const product = filteredProducts[0];
         document.getElementById('productImage').src = product.image;
         document.getElementById('productTitle').textContent = product.title;
-        document.getElementById('productPrice').textContent = `$${product.price}.00`;
+        document.getElementById('productPrice').textContent = `₹ ${product.price}.00`;
         document.getElementById('productDescription').textContent = product.description;
         productDetails.style.display = 'block';
         document.getElementById('noResults').style.display = 'none';
@@ -53,8 +63,14 @@ window.searchProducts = function () {
     }
 }
 
-
-window.BuyNowHandle=function(){
-    // TODO by Jothi Basu
+window.BuyNowHandle = function () {
+    const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct'));
+    if (selectedProduct) {
+        // Store product details in localStorage
+        localStorage.setItem('buyNowProduct', JSON.stringify(selectedProduct));
+        // Redirect to payment page
+        window.location.href = 'payment.html';
+    }
 }
+
 updateCartCount();
