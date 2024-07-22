@@ -1,7 +1,6 @@
-    // Retrieve cart from localStorage
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-document.addEventListener('DOMContentLoaded', function () {
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+document.addEventListener('DOMContentLoaded', function () {
     // Function to display cart items
     function displayCartItems() {
         let cartItemsHtml = '';
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (cart.length === 0) {
             document.getElementById('cartItem').innerHTML = 'Your Cart Is Empty';
-            document.getElementById('total').textContent = '₹ 0.00';
             document.getElementById('total').textContent = '₹ 0.00';
         } else {
             cart.forEach((item, index) => {
@@ -38,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Function to increase item quantity
-
     window.increaseQuantity = function (index) {
         cart[index].quantity++;
         localStorage.setItem('cart', JSON.stringify(cart));
@@ -69,6 +66,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Event listener for clearing the cart
     document.getElementById('clearCart').addEventListener('click', clearCart);
 });
+
+// Function to handle the "Buy Now" button click
+window.buynowfunc = function() {
+    if (cart.length > 0) {
+        localStorage.setItem('buyNowCart', JSON.stringify(cart));
+        window.location.href = 'payment.html';
+    } else {
+        alert('Your cart is empty!');
+    }
+};
 
 window.BuyNowHandle=function buykerthi(){
     localStorage.setItem('cart', JSON.stringify(cart));

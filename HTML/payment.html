@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Payment Page</title>
-  <link rel="stylesheet" href="/CSS/payment.css">
+  <link rel="stylesheet" href="/CSS//CSS/payment.css">
   <script src="/JS/payment.js"></script>
 </head>
+
 <body>
   <div class="payment-page-container">
     <div class="payment-page">
@@ -33,7 +34,6 @@
             Credit/Debit/ATM card
           </label>
         </div>
-
         <div class="all-radios">
           <label class="payment-option">
             <input type="radio" name="payment" value="NetBanking" required>
@@ -55,10 +55,18 @@
     </div>
     <div class="price-details" id="product-container">
       <h2>Price Details</h2>
-      <!-- Price details content goes here -->
-    </div> 
-  </div> 
+      <img id="productImage" alt="Product Image" />
+      <p id="productTitle"></p>
+      <p id="productPrice"></p>
+      <p id="productDescription"></p>
+      <div>
+        <button id="decreaseQuantity">-</button>
+        <span id="productQuantity">1</span>
+        <button id="increaseQuantity">+</button>
+      </div>
+    </div>
+  </div>
   <!-- <script src="/JS/payment.js"></script> -->
 </body>
-</html>  
 
+</html>
