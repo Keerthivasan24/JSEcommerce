@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
     // Retrieve cart from localStorage
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+document.addEventListener('DOMContentLoaded', function () {
 
     // Function to display cart items
     function displayCartItems() {
@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('clearCart').addEventListener('click', clearCart);
 });
 
-window.buynowfunc=function(){
-    //TODO BY JOTHI Buy Now button from cart page. 
-};
+window.BuyNowHandle=function buykerthi(){
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = '/HTML/address.html'; // Adjust the path to your address page
+}

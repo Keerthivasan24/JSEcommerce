@@ -54,7 +54,8 @@ window.searchProducts = function () {
 }
 
 
-window.BuyNowHandle=function(){
-    // TODO by Jothi Basu
+window.BuyNowHandle=function buykerthi(){
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = '/HTML/address.html'; // Adjust the path to your address page
 }
 updateCartCount();

@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Payment Page</title>
-  <link rel="stylesheet" href="payment.css">
+  <link rel="stylesheet" href="/CSS/payment.css">
+  <script src="/JS/payment.js"></script>
 </head>
 <body>
   <div class="payment-page-container">
@@ -15,7 +16,7 @@
           <p class="contact-details">PAYMENT OPTIONS</p>
         </div>
         <div class="all-radios">
-          <label class="payment-option">
+          <label class="payment-option" id="upi">
             <input type="radio" name="payment" value="UPI" required>
             UPI
           </label>
@@ -45,6 +46,8 @@
             Cash On Delivery
           </label>
         </div>
+        <p id="error-message">Please choose any one payment method</p>
+        <p id="success-message">Order Confirm Successfully </p>
       </div>
       <div class="conform-order">
         <button type="submit" id="submit-button">Confirm Order</button>
@@ -54,3 +57,8 @@
       <h2>Price Details</h2>
       <!-- Price details content goes here -->
     </div> 
+  </div> 
+  <!-- <script src="/JS/payment.js"></script> -->
+</body>
+</html>  
+
