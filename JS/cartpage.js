@@ -76,3 +76,8 @@ window.buynowfunc = function() {
         alert('Your cart is empty!');
     }
 };
+
+window.BuyNowHandle=function buykerthi(){
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = '/HTML/address.html'; // Adjust the path to your address page
+}
